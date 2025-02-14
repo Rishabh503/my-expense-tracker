@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
+import { BudgetContext } from '../context/BudgetProvider';
 function WeekSetting(props) {
-    console.log(props)
-    const [budget, setBudget] = useState(0);
+
+    const {allExpense,setAllExpense}=useContext(BudgetContext)
+    
+    console.log(allExpense)
+    const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 
     // const date=new Date();
@@ -14,7 +18,7 @@ function WeekSetting(props) {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(budget,days);
+        // console.log(budget,days);
         props.weekDataHandler(budget);
         const today = new Date();
         const finalDate = new Date();
@@ -22,6 +26,9 @@ function WeekSetting(props) {
 
         // Send only start and end date
         props.day1Handler([{ date: today.toDateString() }, { date: finalDate.toDateString() }]);
+        setAllExpense([{ amount:"10",
+            category:"rishabh",
+            description:"trial mode",}])
     }
    
     

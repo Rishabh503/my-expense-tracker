@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { BudgetProvider } from '../context/BudgetProvider';
 
 export const ExpenseForm=(props)=>{
     // console.log(props)
+    
     const [amount, setAmount] = useState('')
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
+    // const [oldFund]
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -15,6 +18,7 @@ export const ExpenseForm=(props)=>{
             category:category,
             description:description
         }])
+        props.setFund(props.fund-amount)
    
     }
 
