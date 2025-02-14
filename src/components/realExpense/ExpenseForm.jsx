@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react';
 import { IoMdAddCircleOutline } from "react-icons/io";
-import { BudgetProvider } from '../context/BudgetProvider';
 
 export const ExpenseForm=(props)=>{
     // console.log(props)

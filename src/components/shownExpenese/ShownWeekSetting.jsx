@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
-import { ShownBudgetContext } from '../context/ShownBudgetProvider';
+import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
 function ShownWeekSetting(props) {
 
     const {allShownExpense,setAllShownExpense}=useContext(ShownBudgetContext)
     
-    console.log(allShownExpense)
+    // console.log(allShownExpense)
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 

@@ -1,7 +1,6 @@
-import React, { use, useContext, useState } from 'react'
-import { ExpenseForm } from './ExpenseForm'
-import { BudgetContext, BudgetProvider } from '../context/BudgetProvider';
-import { ShownBudgetContext } from '../context/ShownBudgetProvider';
+import React, { useContext } from 'react';
+import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
+import { ExpenseForm } from '../realExpense/ExpenseForm';
 
 export const ShownList = () => {
     //isko milna chaiye ek naya expense to add
@@ -17,10 +16,10 @@ const {allShownExpense,setAllShownExpense,pageinfo}=useContext(ShownBudgetContex
 // console.log(pageinfo)
     let am=0;
     const totalAm=allShownExpense.forEach((ex)=>(am+=Number(ex.amount)))
-    console.log(am)
+    // console.log(am)
 
 const {fundShown,setFundShown}=useContext(ShownBudgetContext);
-console.log(fundShown)
+// console.log(fundShown)
   return (
     <>
     <ExpenseForm expenseDataHandle={setAllShownExpense} expenseData={allShownExpense} fund={fundShown} setFund={setFundShown} />

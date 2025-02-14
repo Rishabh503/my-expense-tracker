@@ -1,17 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import { FaCalendarWeek } from "react-icons/fa";
 import { MdOutlineCurrencyRupee } from 'react-icons/md';
+import { BudgetContext } from '../../context/BudgetProvider';
 import WeekSetting from './WeekSetting';
-import { BudgetContext } from '../context/BudgetProvider';
 
 export const CurrentWeek = () => {
    
     const[day1,setDay1]=useState([]); 
- 
+    const secondBudget=JSON.parse(localStorage.getItem('shownFund'));
+    // console.log(secondBudget)
     const {fund,setFund}=useContext(BudgetContext)
   return (
     <>
-    <div className='p-10 w-full border items-center    gap-5 justify-between rounded-2xl bg-white '>
+    <div>
+    <div className='p-10 w-full border items-center  mb-10  gap-5 justify-between rounded-2xl bg-white '>
 
       <div className='sm:flex justify-between items-center '>
       <div>
@@ -46,13 +48,16 @@ export const CurrentWeek = () => {
         <div className='sm:flex w-full mt-3 flex-col'>
             <div className='w-full p-2 bg-blue-50'>
                 <p className='text-md font-semibold  text-blue-600'>   Shown Budget Remaining</p>
-                <p className='text-3xl inline-flex items-center text-blue-800 font-semibold'> <MdOutlineCurrencyRupee  className='mt-1 text-2xl' /> 300</p>
+                <p className='text-3xl inline-flex items-center text-blue-800 font-semibold'> <MdOutlineCurrencyRupee  className='mt-1 text-2xl' /> {secondBudget}</p>
             </div>
         
         </div>
        </div>
     </div>
-    <WeekSetting weekData={fund} weekDataHandler={setFund} day1={day1}  day1Handler={setDay1}  />
+    <div className='sm:w-1/3 '>
+    <WeekSetting  weekData={fund} weekDataHandler={setFund} day1={day1}  day1Handler={setDay1}  />
+    </div>
+    </div>
     </>
   )
 }

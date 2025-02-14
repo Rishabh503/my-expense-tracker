@@ -14,7 +14,8 @@ const ExpenseNavbar = () => {
   ];
 
   return (
-    <div className="flex items-center justify-between p-4 border shadow-sm mb-8">
+    <div className='p  py-6 w-full  items-center  bg-green-50  gap-5 justify-between rounded-2xl '>
+     <div className="flex items-center flex-wrap justify-between   shadow-sm ">
       <h1 className="text-2xl font-bold text-gray-900 mr-5">Expense Manager</h1>
       <div className="flex gap-3">
         {tabs.map((tab, index) => (
@@ -22,7 +23,7 @@ const ExpenseNavbar = () => {
             key={index}
             to={tab.path}
             className={({ isActive }) =>
-              `flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+              `flex items-center gap-2  rounded-lg transition-all duration-300 ${
                 isActive ? "bg-green-600 text-white" : "bg-white border text-gray-800"
               }`
             }
@@ -33,6 +34,7 @@ const ExpenseNavbar = () => {
         ))}
       </div>
     </div>
+   </div>
   );
 };
 

@@ -1,6 +1,6 @@
-import React, { use, useContext, useState } from 'react'
-import { ExpenseForm } from './ExpenseForm'
-import { BudgetContext, BudgetProvider } from '../context/BudgetProvider';
+import React, { useContext } from 'react';
+import { BudgetContext } from '../../context/BudgetProvider';
+import { ExpenseForm } from './ExpenseForm';
 
 export const ExpenseList = () => {
     //isko milna chaiye ek naya expense to add
@@ -20,7 +20,9 @@ const {allExpense,setAllExpense,pageinfo}=useContext(BudgetContext);
 const {fund,setFund}=useContext(BudgetContext);
   return (
     <>
+    <div className='sm:w-2/3 '>
     <ExpenseForm expenseDataHandle={setAllExpense} expenseData={allExpense} fund={fund} setFund={setFund} />
+    </div>
     <div className='p-10 w-full border items-center    gap-5 justify-between rounded-2xl bg-white '>
         <div className='flex justify-between'>
             <h1 className='font-semibold text-2xl inline-flex items-center text-center gap-2'>{pageinfo} Expense</h1>

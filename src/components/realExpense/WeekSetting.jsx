@@ -1,13 +1,12 @@
-import React, { useContext, useState } from 'react'
-import { IoMdAddCircleOutline } from 'react-icons/io';
-import { MdOutlineCurrencyRupee } from "react-icons/md";
+import React, { useContext, useState } from 'react';
 import { IoSettingsOutline } from "react-icons/io5";
-import { BudgetContext } from '../context/BudgetProvider';
+import { MdOutlineCurrencyRupee } from "react-icons/md";
+import { BudgetContext } from '../../context/BudgetProvider';
 function WeekSetting(props) {
 
     const {allExpense,setAllExpense}=useContext(BudgetContext)
     
-    console.log(allExpense)
+    // console.log(allExpense)
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 
