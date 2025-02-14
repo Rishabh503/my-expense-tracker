@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaCalendarWeek } from "react-icons/fa";
 
 export const CurrentWeek = () => {
   return (
@@ -12,8 +13,9 @@ export const CurrentWeek = () => {
             </h3>
         </div>
          <div className='mt-4 items-center'>
-            <button className='px-5 py-3 text-white text-center w-full bg-green-600 rounded-lg items-center'>
-                <span className='font-bold text-xl'>+</span> Start a New Week
+            <button className='inline-flex items-center justify-center text-xl gap-2
+                                   px-5 py-3 text-white text-center w-full bg-green-600 rounded-lg'>
+            <FaCalendarWeek  className='mt-1 text-2xl' />  Start New Week
             </button>
          </div>
     </div>
