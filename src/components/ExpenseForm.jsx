@@ -1,29 +1,36 @@
 import React, { useState } from 'react'
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-function ExpenseForm() {
-
+export const ExpenseForm=(props)=>{
+    // console.log(props)
     const [amount, setAmount] = useState('')
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         console.log(amount,category,description);
+        props.expenseDataHandle([...props.expenseData,{
+            amount:amount,
+            category:category,
+            description:description
+        }])
+   
     }
 
   return (
     <div className='p-10 w-full border items-center    gap-5 justify-between rounded-2xl bg-white '>
         <form className='flex flex-col gap-5 mt-2'
          onSubmit={(e)=>handleSubmit(e)} >
-            <div className='sm:flex sm:justify-between items-center '>
-            <div>
+            <div className='sm:flex gap-5 sm:justify-between items-center '>
+            <div className='w-full '>
                 <h1 className='text-gray-800 text-xl font-semibold'>Amount</h1>
                 <input value={amount} type="number" 
                     onChange={(e)=>{setAmount(e.target.value)}}
                     className='border mt-2 w-full  text-xl shadow-md'
                 />
             </div>
-            <div>
+            <div className='w-full'>
                 <h1 className='text-gray-800 text-xl font-semibold'>Category</h1>
                 <input  value={category} type="text" onChange={(e)=>{setCategory(e.target.value)}} 
             className='border w-full text-xl shadow-md mt-2'/>
@@ -43,4 +50,4 @@ function ExpenseForm() {
   )
 }
 
-export default ExpenseForm
+// export default ExpenseForm
