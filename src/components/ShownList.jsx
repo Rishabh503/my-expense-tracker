@@ -1,8 +1,9 @@
 import React, { use, useContext, useState } from 'react'
 import { ExpenseForm } from './ExpenseForm'
 import { BudgetContext, BudgetProvider } from '../context/BudgetProvider';
+import { ShownBudgetContext } from '../context/ShownBudgetProvider';
 
-export const ExpenseList = () => {
+export const ShownList = () => {
     //isko milna chaiye ek naya expense to add
 //     const [allExpense, setAllExpense] = useState([{
 //         amount:"10",
@@ -10,17 +11,19 @@ export const ExpenseList = () => {
 //         description:"trial mode",
 //     }
 // ])
-const {allExpense,setAllExpense,pageinfo}=useContext(BudgetContext);
+
+const {allShownExpense,setAllShownExpense,pageinfo}=useContext(ShownBudgetContext);
 // const ALLData=useContext(BudgetContext)/
 // console.log(pageinfo)
     let am=0;
-    const totalAm=allExpense.forEach((ex)=>(am+=Number(ex.amount)))
+    const totalAm=allShownExpense.forEach((ex)=>(am+=Number(ex.amount)))
     console.log(am)
 
-const {fund,setFund}=useContext(BudgetContext);
+const {fundShown,setFundShown}=useContext(ShownBudgetContext);
+console.log(fundShown)
   return (
     <>
-    <ExpenseForm expenseDataHandle={setAllExpense} expenseData={allExpense} fund={fund} setFund={setFund} />
+    <ExpenseForm expenseDataHandle={setAllShownExpense} expenseData={allShownExpense} fund={fundShown} setFund={setFundShown} />
     <div className='p-10 w-full border items-center    gap-5 justify-between rounded-2xl bg-white '>
         <div className='flex justify-between'>
             <h1 className='font-semibold text-2xl inline-flex items-center text-center gap-2'>{pageinfo} Expense</h1>
@@ -28,7 +31,7 @@ const {fund,setFund}=useContext(BudgetContext);
         </div>
         <div className='p-5 flex flex-col gap-5'>
           {
-            allExpense.map((exp,i)=>(
+            allShownExpense.map((exp,i)=>(
                 <div key={i} className='bg-white shadow-md border rounded-md p-2'>
                   <div className='flex items-center  gap-2'>
                   <h1 className='font-semibold  text-2xl'>
