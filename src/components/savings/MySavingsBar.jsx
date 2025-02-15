@@ -22,10 +22,8 @@ const MySavingsBar = () => {
   }
   const handleSub=(e)=>{
     e.preventDefault();
-  
     setallSavings(Number(allSavings)-Number(sub));
     setLastSubtracted(sub)
-   
   }
 
 

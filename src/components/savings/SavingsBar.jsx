@@ -2,15 +2,15 @@ import React from 'react'
 // import { am } from './shownExpenese/ShownList';
 
 export const SavingsBar = () => {
-    const real=JSON.parse(localStorage.getItem('fund'))
-    const realExpense=JSON.parse(localStorage.getItem('expenses'))
+    const real=JSON.parse(localStorage.getItem('fund')) || 0;
+    const realExpense=JSON.parse(localStorage.getItem('expenses')) || [];
     let realTotalAmount=0;
     const totalAm=realExpense.forEach((ex)=>(realTotalAmount+=Number(ex.amount)))
     console.log(realTotalAmount)
 
 
-    const shown=JSON.parse(localStorage.getItem('shownFund'))
-    const shownExpense=JSON.parse(localStorage.getItem('shownExpenses'))
+    const shown=JSON.parse(localStorage.getItem('shownFund')) || 0;
+    const shownExpense=JSON.parse(localStorage.getItem('shownExpenses')) || [];
     let shownTotalAmount=0;
     const shownTotal=shownExpense.forEach((ex)=>(shownTotalAmount+=Number(ex.amount)))
     console.log(shownTotalAmount)

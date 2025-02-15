@@ -3,6 +3,7 @@ import { RealExpenses } from "./pages/RealExpenses";
 import ExpenseNavbar from "./components/ExpenseNavbar";
 
 export default function App() {
+  // localStorage.clear()
   return (
     
       <section>

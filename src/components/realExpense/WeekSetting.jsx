@@ -1,35 +1,34 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { BudgetContext } from '../../context/BudgetProvider';
 function WeekSetting(props) {
+  
 
     const {allExpense,setAllExpense}=useContext(BudgetContext)
-    
-    // console.log(allExpense)
+   
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 
-    // const date=new Date();
-    // const nextDate=new Date();
-    // nextDate.setDate(date.getDate()+days)
-    // console.log(date,nextDate);
+    
+
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        // console.log(budget,days);
+        
         props.weekDataHandler(budget);
         const today = new Date();
         const finalDate = new Date();
         finalDate.setDate(today.getDate() + (days - 1)); // Last day is today + 3 days (if 4-day week)
-
+        
         // Send only start and end date
         props.day1Handler([{ date: today.toDateString() }, { date: finalDate.toDateString() }]);
+        
         setAllExpense([{ amount:"10",
             category:"rishabh",
             description:"trial mode",}])
     }
-   
+  
     
   return (
     <div className='p-10 w-full border items-center    gap-5 justify-between rounded-2xl bg-white '>

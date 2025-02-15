@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaCalendarWeek } from "react-icons/fa";
 import { MdOutlineCurrencyRupee } from 'react-icons/md';
 import { BudgetContext } from '../../context/BudgetProvider';
@@ -6,10 +6,11 @@ import WeekSetting from './WeekSetting';
 
 export const CurrentWeek = () => {
    
-    const[day1,setDay1]=useState([]); 
+    const[day1,setDay1]=useState([]);
+     
     const secondBudget=JSON.parse(localStorage.getItem('shownFund'));
-    // console.log(secondBudget)
     const {fund,setFund}=useContext(BudgetContext)
+    
   return (
     <>
     <div>
