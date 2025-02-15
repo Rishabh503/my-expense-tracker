@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
 import { ExpenseForm } from '../realExpense/ExpenseForm';
 
+// export let am = 3.14159;
 export const ShownList = () => {
     //isko milna chaiye ek naya expense to add
 //     const [allExpense, setAllExpense] = useState([{
@@ -11,11 +12,13 @@ export const ShownList = () => {
 //     }
 // ])
 
+
+// export const pi = 3.14159;
 const {allShownExpense,setAllShownExpense,pageinfo}=useContext(ShownBudgetContext);
 // const ALLData=useContext(BudgetContext)/
 // console.log(pageinfo)
-    let am=0;
-    const totalAm=allShownExpense.forEach((ex)=>(am+=Number(ex.amount)))
+     let am=0;
+     const totalAm=allShownExpense.forEach((ex)=>(am+=Number(ex.amount)))
     // console.log(am)
 
 const {fundShown,setFundShown}=useContext(ShownBudgetContext);

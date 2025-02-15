@@ -25,7 +25,7 @@ function ShownWeekSetting(props) {
 
         // Send only start and end date
         props.day1Handler([{ date: today.toDateString() }, { date: finalDate.toDateString() }]);
-        setAllExpense([{ amount:"10",
+        setAllShownExpense([{ amount:"10",
             category:"rishabh",
             description:"trial mode",}])
     }
