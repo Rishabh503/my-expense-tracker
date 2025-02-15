@@ -5,8 +5,24 @@ import { BudgetContext } from '../../context/BudgetProvider';
 import WeekSetting from './WeekSetting';
 
 export const CurrentWeek = () => {
-   
-    const[day1,setDay1]=useState([]);
+    const [day1, setDay1] = useState([]);  // Default to empty array
+
+    useEffect(() => {
+        const daysData = localStorage.getItem('days');
+        console.log("Raw localStorage data:", daysData); // Debugging
+    
+        if (daysData) {
+            try {
+                const parsedData = JSON.parse(daysData);
+                setDay1(parsedData);  // Ensure it's set properly
+            } catch (error) {
+                console.error("Error parsing stored days:", error);
+                setDay1([]);  // Fallback to empty array if parsing fails
+            }
+        }
+    }, []);
+    
+    console.log("Updated day1 state:", day1); // Debugging
      
     const secondBudget=JSON.parse(localStorage.getItem('shownFund'));
     const {fund,setFund}=useContext(BudgetContext)

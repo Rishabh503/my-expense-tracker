@@ -10,7 +10,8 @@ function WeekSetting(props) {
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 
-    
+   
+   let daysData=[]
 
 
     const handleSubmit=(e)=>{
@@ -22,7 +23,9 @@ function WeekSetting(props) {
         finalDate.setDate(today.getDate() + (days - 1)); // Last day is today + 3 days (if 4-day week)
         
         // Send only start and end date
-        props.day1Handler([{ date: today.toDateString() }, { date: finalDate.toDateString() }]);
+        daysData=[{ date: today.toDateString() }, { date: finalDate.toDateString() }]
+        localStorage.setItem('days',JSON.stringify(daysData))
+        props.day1Handler(daysData);
         
         setAllExpense([{ amount:"10",
             category:"rishabh",

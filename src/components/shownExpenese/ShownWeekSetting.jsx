@@ -14,7 +14,7 @@ function ShownWeekSetting(props) {
     // const nextDate=new Date();
     // nextDate.setDate(date.getDate()+days)
     // console.log(date,nextDate);
-
+    let daysData=[]
     const handleSubmit=(e)=>{
         e.preventDefault();
         // console.log(budget,days);
@@ -24,7 +24,9 @@ function ShownWeekSetting(props) {
         finalDate.setDate(today.getDate() + (days - 1)); // Last day is today + 3 days (if 4-day week)
 
         // Send only start and end date
-        props.day1Handler([{ date: today.toDateString() }, { date: finalDate.toDateString() }]);
+        daysData=[{ date: today.toDateString() }, { date: finalDate.toDateString() }]
+        localStorage.setItem('days',JSON.stringify(daysData))
+        props.day1Handler(daysData);
         setAllShownExpense([{ amount:"10",
             category:"rishabh",
             description:"trial mode",}])

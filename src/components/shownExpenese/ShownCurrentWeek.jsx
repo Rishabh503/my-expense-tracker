@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaCalendarWeek } from "react-icons/fa";
 import { MdOutlineCurrencyRupee } from 'react-icons/md';
 import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
@@ -6,7 +6,24 @@ import ShownWeekSetting from '../shownExpenese/ShownWeekSetting';
 
 export const ShownCurrentWeek = () => {
    
-    const[day1,setDay1]=useState([]); 
+     const [day1, setDay1] = useState([]);  // Default to empty array
+    
+        useEffect(() => {
+            const daysData = localStorage.getItem('days');
+            console.log("Raw localStorage data:", daysData); // Debugging
+        
+            if (daysData) {
+                try {
+                    const parsedData = JSON.parse(daysData);
+                    setDay1(parsedData);  // Ensure it's set properly
+                } catch (error) {
+                    console.error("Error parsing stored days:", error);
+                    setDay1([]);  // Fallback to empty array if parsing fails
+                }
+            }
+        }, []);
+        
+        console.log("Updated day1 state:", day1); // Debugging
  const {fundShown,setFundShown}=useContext(ShownBudgetContext)
 //  console.log(fundShown,setDay1)
 const secondBudget=JSON.parse(localStorage.getItem('fund'))
