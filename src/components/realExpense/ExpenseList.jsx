@@ -15,7 +15,7 @@ const {allExpense,setAllExpense,pageinfo}=useContext(BudgetContext);
 // console.log(pageinfo)
     let am=0;
     const totalAm=allExpense.forEach((ex)=>(am+=Number(ex.amount)))
-    console.log(am)
+    // console.log(am)
 
 const {fund,setFund}=useContext(BudgetContext);
   return (

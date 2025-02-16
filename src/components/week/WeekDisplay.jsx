@@ -1,12 +1,26 @@
 import React from 'react'
 
 export const WeekDisplay = (props) => {
-    console.log(props)
+    // console.log(props)
   return (
-    <div className='w-1/2 border text-center'>
+    <div className='sm:w-1/2 bg-emerald-400  border rounded-lg shadow-sm text-center'>
+      <div className='text-3xl font-semibold'>
+        {props.type} Data
+      </div>
+      <div className='flex text-lg font-semibold gap-4 justify-between flex-wrap p-2'>
+          <p>
+            Amount
+          </p>
+          <p>
+            Category
+          </p>
+          <p>
+            Description
+          </p>
+        </div>
     {
       props.data.map((d,i)=>(
-        <div className='flex gap-4 justify-normal p-2'>
+        <div key={i} className='flex border items-center gap-4 justify-between flex-wrap p-2'>
           <p>
             {d.amount}
           </p>

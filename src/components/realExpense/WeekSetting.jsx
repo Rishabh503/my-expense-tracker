@@ -8,7 +8,7 @@ function WeekSetting(props) {
 
     const {allExpense,setAllExpense}=useContext(BudgetContext)
     const {allShownExpense,setAllShownExpense,setFundShown}=useContext(ShownBudgetContext)
-    console.log(allShownExpense)
+    
    
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);

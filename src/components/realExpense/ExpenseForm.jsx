@@ -11,7 +11,7 @@ export const ExpenseForm=(props)=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(amount,category,description);
+        // console.log(amount,category,description);
         props.expenseDataHandle([...props.expenseData,{
             amount:amount,
             category:category,

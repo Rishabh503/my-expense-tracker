@@ -3,7 +3,7 @@ import { FaCalendarWeek } from "react-icons/fa";
 import { MdOutlineCurrencyRupee } from 'react-icons/md';
 import { BudgetContext } from '../../context/BudgetProvider';
 import WeekSetting from './WeekSetting';
-import { trial } from '../week/WeekBar';
+// import { trial } from '../week/WeekBar';
 
 export const CurrentWeek = () => {
     const [day1, setDay1] = useState([]);  

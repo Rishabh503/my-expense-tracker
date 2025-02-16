@@ -6,17 +6,17 @@ export const SavingsBar = () => {
     const realExpense=JSON.parse(localStorage.getItem('expenses')) || [];
     let realTotalAmount=0;
     const totalAm=realExpense.forEach((ex)=>(realTotalAmount+=Number(ex.amount)))
-    console.log(realTotalAmount)
+    // console.log(realTotalAmount)
 
 
     const shown=JSON.parse(localStorage.getItem('shownFund')) || 0;
     const shownExpense=JSON.parse(localStorage.getItem('shownExpenses')) || [];
     let shownTotalAmount=0;
     const shownTotal=shownExpense.forEach((ex)=>(shownTotalAmount+=Number(ex.amount)))
-    console.log(shownTotalAmount)
+    // console.log(shownTotalAmount)
 
     const day1=JSON.parse(localStorage.getItem('days'))
-    console.log(day1)
+    // console.log(day1)
     const val1=day1[0];
     const date=new Date();
 
