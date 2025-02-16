@@ -1,28 +1,27 @@
 import React, { useContext } from 'react';
 import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
 import { ExpenseForm } from '../realExpense/ExpenseForm';
+import { MdDelete } from 'react-icons/md';
 
 // export let am = 3.14159;
 export const ShownList = () => {
-    //isko milna chaiye ek naya expense to add
-//     const [allExpense, setAllExpense] = useState([{
-//         amount:"10",
-//         category:"rishabh",
-//         description:"trial mode",
-//     }
-// ])
 
 
-// export const pi = 3.14159;
+
 const {allShownExpense,setAllShownExpense,pageinfo}=useContext(ShownBudgetContext);
-// const ALLData=useContext(BudgetContext)/
-// console.log(pageinfo)
+
      let am=0;
      const totalAm=allShownExpense.forEach((ex)=>(am+=Number(ex.amount)))
-    // console.log(am)
+
 
 const {fundShown,setFundShown}=useContext(ShownBudgetContext);
-// console.log(fundShown)
+    const handleDelete=(i)=>{
+      const updated=allShownExpense.filter((exp,index)=>i!==index);
+      const deletedItem=allShownExpense.filter((exp,index)=>i===index);
+      // console.log(updated,deletedItem)
+      setAllShownExpense(updated)
+      setFundShown(fundShown-deletedItem[0].amount)
+    }
   return (
     <>
     <ExpenseForm expenseDataHandle={setAllShownExpense} expenseData={allShownExpense} fund={fundShown} setFund={setFundShown} />
@@ -43,9 +42,14 @@ const {fundShown,setFundShown}=useContext(ShownBudgetContext);
                         {exp.category}
                     </h1>
                   </div>
-                  <h3 className='text-gray-800 text-sm mt-2'>
-                        {exp.description}
-                    </h3>
+                   <div className='flex items-center  justify-between'>
+                <h3 className='text-gray-800 text-sm mt-2'>
+                   {exp.description}
+               </h3>
+               <button onClick={()=>handleDelete(i)}>
+               <MdDelete className='text-2xl' />
+               </button>
+       </div>
                 </div>
             ))
           }

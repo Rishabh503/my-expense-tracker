@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
 import { BudgetContext } from '../../context/BudgetProvider';
 import { ExpenseForm } from './ExpenseForm';
+import { MdDelete } from "react-icons/md";
 
 export const ExpenseList = () => {
-    //isko milna chaiye ek naya expense to add
-//     const [allExpense, setAllExpense] = useState([{
-//         amount:"10",
-//         category:"rishabh",
-//         description:"trial mode",
-//     }
-// ])
+
 const {allExpense,setAllExpense,pageinfo}=useContext(BudgetContext);
-// const ALLData=useContext(BudgetContext)/
-// console.log(pageinfo)
+const {fund,setFund}=useContext(BudgetContext);
     let am=0;
     const totalAm=allExpense.forEach((ex)=>(am+=Number(ex.amount)))
-    // console.log(am)
+    const handleDelete=(i)=>{
+      const updatedafterDeleted=allExpense.filter((exp,index)=>i!==index);
+      const deletedItem=allExpense.filter((exp,index)=>i===index);
+      setAllExpense(updatedafterDeleted)
+      setFund(fund-deletedItem[0].amount)
+      console.log(deletedItem[0])
+    }
 
-const {fund,setFund}=useContext(BudgetContext);
+
   return (
     <>
     <div className='sm:w-2/3 '>
@@ -40,9 +40,14 @@ const {fund,setFund}=useContext(BudgetContext);
                         {exp.category}
                     </h1>
                   </div>
+                  <div className='flex items-center  justify-between'>
                   <h3 className='text-gray-800 text-sm mt-2'>
                         {exp.description}
                     </h3>
+                    <button onClick={()=>handleDelete(i)}>
+                    <MdDelete className='text-2xl' />
+                    </button>
+                  </div>
                 </div>
             ))
           }

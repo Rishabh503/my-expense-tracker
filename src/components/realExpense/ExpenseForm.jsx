@@ -10,15 +10,18 @@ export const ExpenseForm=(props)=>{
     // const [oldFund]
 
     const handleSubmit=(e)=>{
+
+        if(!amount || !category || !description) alert("fill all")
         e.preventDefault();
         // console.log(amount,category,description);
-        props.expenseDataHandle([...props.expenseData,{
+        props.expenseDataHandle([{
             amount:amount,
             category:category,
             description:description
-        }])
+        },...props.expenseData])
         props.setFund(props.fund-amount)
-   
+        setAmount('');setCategory(''),setDescription('')
+
     }
 
   return (
@@ -28,20 +31,20 @@ export const ExpenseForm=(props)=>{
             <div className='sm:flex gap-5 sm:justify-between items-center '>
             <div className='w-full '>
                 <h1 className='text-gray-800 text-xl font-semibold'>Amount</h1>
-                <input value={amount} type="number" 
+                <input value={amount} type="number" placeholder='Enter a amount'
                     onChange={(e)=>{setAmount(e.target.value)}}
                     className='border mt-2 w-full  text-xl shadow-md'
                 />
             </div>
             <div className='w-full'>
                 <h1 className='text-gray-800 text-xl font-semibold'>Category</h1>
-                <input  value={category} type="text" onChange={(e)=>{setCategory(e.target.value)}} 
+                <input  value={category} placeholder='day or date or category' type="text" onChange={(e)=>{setCategory(e.target.value)}} 
             className='border w-full text-xl shadow-md mt-2'/>
             </div>
             </div>
             <div>
                 <h1 className='text-gray-800 text-xl font-semibold'>Description</h1>
-                <input  value={description} type="text" onChange={(e)=>{setDescription(e.target.value)}} 
+                <input  value={description} placeholder='Description 🤔' type="text" onChange={(e)=>{setDescription(e.target.value)}} 
             className='border w-full text-xl shadow-md mt-2'/>
             </div>
             <button className='inline-flex items-center justify-center text-xl gap-2

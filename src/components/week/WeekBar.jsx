@@ -20,17 +20,17 @@ export const WeekBar = ({days,realExpenseData,shownExpenseData,realTotalAmount,s
   // console.log(realData)
   return (
     <div className='bg-white p-10 flex flex-col gap-4 border rounded-lg' >
-      <div className=' sm:w-full  flex flex-wrap gap-5 items-center justify-between rounded- '>
-      <div className='text-lg px-3 font-semibold '>
+      <div className=' sm:w-full w-full flex flex-wrap gap-5 items-center justify-between rounded- '>
+      <div className=' w-full text-xl px-6 font-bold '>
         {days.length>0?days[0].date + " to " + days[1].date:
         "Week Info"}
       </div>
-      <div className='flex  text-md  gap-5 sm:gap-10 justify-between  items-center'>
+      <div className='flex w-full  text-xl  gap-5 sm:gap-10 justify-between  items-center'>
         <div>
           <h1>
             Real 
           </h1>
-          <h2 className='text-center text-red-500 text-2xl font-semibold'>
+          <h2 className='text-center text-red-500 text-4xl font-semibold'>
             {realTotalAmount}
           </h2>
         </div>
@@ -38,15 +38,15 @@ export const WeekBar = ({days,realExpenseData,shownExpenseData,realTotalAmount,s
           <h1>
             Shown 
           </h1>
-          <h2 className='text-center text-red-700 text-2xl font-semibold'>
+          <h2 className='text-center text-red-700 text-4xl font-semibold'>
             {shownTotalAmount}
           </h2>
         </div>
         <div>
           <h1 >
-            Savings
+            Savings 
           </h1>
-          <h2 className='text-center text-green-700 text-2xl font-semibold'>
+          <h2 className='text-center text-green-700 text-4xl font-semibold'>
             {shownTotalAmount-realTotalAmount}
           </h2>
         </div>
