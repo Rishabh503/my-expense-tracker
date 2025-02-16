@@ -25,20 +25,20 @@ export const WeekBar = ({days,realExpenseData,shownExpenseData,realTotalAmount,s
         {days.length>0?days[0].date + " to " + days[1].date:
         "Week Info"}
       </div>
-      <div className='flex  text-md  gap-5 sm:gap-10 flex-wrap items-center'>
+      <div className='flex  text-md  gap-5 sm:gap-10 justify-between  items-center'>
         <div>
           <h1>
-            Real Expense
+            Real 
           </h1>
-          <h2 className='text-center text-red-500 text-4xl font-semibold'>
+          <h2 className='text-center text-red-500 text-2xl font-semibold'>
             {realTotalAmount}
           </h2>
         </div>
         <div>
           <h1>
-            Shown Expense
+            Shown 
           </h1>
-          <h2 className='text-center text-red-700 text-4xl font-semibold'>
+          <h2 className='text-center text-red-700 text-2xl font-semibold'>
             {shownTotalAmount}
           </h2>
         </div>
@@ -46,7 +46,7 @@ export const WeekBar = ({days,realExpenseData,shownExpenseData,realTotalAmount,s
           <h1 >
             Savings
           </h1>
-          <h2 className='text-center text-green-700 text-4xl font-semibold'>
+          <h2 className='text-center text-green-700 text-2xl font-semibold'>
             {shownTotalAmount-realTotalAmount}
           </h2>
         </div>
