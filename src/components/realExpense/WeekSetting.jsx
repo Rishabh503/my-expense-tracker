@@ -10,6 +10,8 @@ function WeekSetting(props) {
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
 
+
+    
    
    let daysData=[]
 

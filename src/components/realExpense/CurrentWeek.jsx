@@ -3,30 +3,36 @@ import { FaCalendarWeek } from "react-icons/fa";
 import { MdOutlineCurrencyRupee } from 'react-icons/md';
 import { BudgetContext } from '../../context/BudgetProvider';
 import WeekSetting from './WeekSetting';
+import { trial } from '../week/WeekBar';
 
 export const CurrentWeek = () => {
-    const [day1, setDay1] = useState([]);  // Default to empty array
+    const [day1, setDay1] = useState([]);  
 
     useEffect(() => {
         const daysData = localStorage.getItem('days');
-        console.log("Raw localStorage data:", daysData); // Debugging
+
     
         if (daysData) {
             try {
                 const parsedData = JSON.parse(daysData);
-                setDay1(parsedData);  // Ensure it's set properly
+                setDay1(parsedData);  
             } catch (error) {
                 console.error("Error parsing stored days:", error);
-                setDay1([]);  // Fallback to empty array if parsing fails
+                setDay1([]); 
             }
         }
     }, []);
     
-    console.log("Updated day1 state:", day1); // Debugging
+    
      
     const secondBudget=JSON.parse(localStorage.getItem('shownFund'));
     const {fund,setFund}=useContext(BudgetContext)
     
+
+    const handleNewWeek=(e)=>{
+        trial();
+    }
+
   return (
     <>
     <div>
@@ -47,7 +53,7 @@ export const CurrentWeek = () => {
         </div>
      
          <div className='mt-4 items-center'>
-            <button className='inline-flex items-center justify-center text-xl gap-2
+            <button onClick={(e)=>{handleNewWeek(e)}}  className='inline-flex items-center justify-center text-xl gap-2
                                    px-5 py-3 text-white text-center w-full bg-green-600 rounded-lg'>
             <FaCalendarWeek  className='mt-1 text-2xl' />  Start New Week
             </button>

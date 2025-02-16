@@ -10,7 +10,7 @@ export const ShownCurrentWeek = () => {
     
         useEffect(() => {
             const daysData = localStorage.getItem('days');
-            console.log("Raw localStorage data:", daysData); // Debugging
+            
         
             if (daysData) {
                 try {
@@ -23,7 +23,7 @@ export const ShownCurrentWeek = () => {
             }
         }, []);
         
-        console.log("Updated day1 state:", day1); // Debugging
+     
  const {fundShown,setFundShown}=useContext(ShownBudgetContext)
 //  console.log(fundShown,setDay1)
 const secondBudget=JSON.parse(localStorage.getItem('fund'))
