@@ -11,7 +11,7 @@ export const ExpenseForm=(props)=>{
 
     const handleSubmit=(e)=>{
 
-        if(!amount || !category || !description) alert("fill all")
+        if(!amount || !category || !description) {alert("fill all"); return }
         e.preventDefault();
         // console.log(amount,category,description);
         props.expenseDataHandle([{

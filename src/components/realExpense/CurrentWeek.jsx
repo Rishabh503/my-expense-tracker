@@ -56,15 +56,15 @@ export const CurrentWeek = () => {
       </div>
 
        <div  className='sm:flex justify-between gap-5'>
-       <div className='sm:flex w-full mt-3 flex-col'>
+       <div className='sm:flex w-full mt-3  bg-green-50 flex-col'>
             <a href='/'  className='w-full p-2 bg-green-50'>
                 <p className='text-md font-semibold  text-green-600'>   Real Budget Remaining</p>
                 <p className='text-3xl inline-flex items-center text-green-800 font-semibold'> <MdOutlineCurrencyRupee  className='mt-1 text-2xl' /> {fund}</p>
             </a>
         
         </div>
-        <div className='sm:flex w-full mt-3 flex-col'>
-            <a href='/shown' className='w-full p-2 bg-blue-50'>
+        <div className='sm:flex bg-blue-50 w-full mt-3 flex-col'>
+            <a href='/shown' className='w-full p-2 '>
                 <p className='text-md font-semibold  text-blue-600'>   Shown Budget Remaining</p>
                 <p className='text-3xl inline-flex items-center text-blue-800 font-semibold'> <MdOutlineCurrencyRupee  className='mt-1 text-2xl' /> {secondBudget}</p>
             </a>
