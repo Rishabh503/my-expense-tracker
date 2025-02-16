@@ -7,7 +7,7 @@ export const WeekDisplay = (props) => {
       <div className='text-3xl font-semibold'>
         {props.type} Data
       </div>
-      <div className='flex text-lg font-semibold gap-4 justify-between flex-wrap p-2'>
+      <div className='flex text-lg font-semibold gap-4 justify-between flex-wrap p-2 overflow-hidden'>
           <p>
             Amount
           </p>
@@ -20,7 +20,7 @@ export const WeekDisplay = (props) => {
         </div>
     {
       props.data.map((d,i)=>(
-        <div key={i} className='flex border items-center gap-4 justify-between flex-wrap p-2'>
+        <div key={i} className='flex border items-center gap-4 justify-between flex-wrap overflow-auto p-2'>
           <p>
             {d.amount}
           </p>

@@ -25,7 +25,7 @@ export const WeekBar = ({days,realExpenseData,shownExpenseData,realTotalAmount,s
         {days.length>0?days[0].date + " to " + days[1].date:
         "Week Info"}
       </div>
-      <div className='flex  text-lg  gap-5 sm:gap-10 flex-wrap items-center'>
+      <div className='flex  text-md  gap-5 sm:gap-10 flex-wrap items-center'>
         <div>
           <h1>
             Real Expense

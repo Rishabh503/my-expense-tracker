@@ -36,7 +36,7 @@ const secondBudget=JSON.parse(localStorage.getItem('fund'))
             <h1 className='font-semibold  text-2xl'>
                 Current Week
             </h1>
-            <h3 className='text-gray-800 flex gap-2 text-sm mt-2'>
+            <h3 className='text-gray-800 flex gap-2 text-lg font-bold mt-2'>
                 {day1.map((d,i)=>(
                     <div key={i}>
                           {i==0?d.date+"  to":d.date}  
@@ -45,12 +45,7 @@ const secondBudget=JSON.parse(localStorage.getItem('fund'))
             </h3>
         </div>
      
-         <div className='mt-4 items-center'>
-            <button className='inline-flex items-center justify-center text-xl gap-2
-                                   px-5 py-3 text-white text-center w-full bg-green-600 rounded-lg'>
-            <FaCalendarWeek  className='mt-1 text-2xl' />  Start New Week
-            </button>
-         </div>
+
       </div>
 
        <div  className='sm:flex justify-between gap-5'>

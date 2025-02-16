@@ -25,7 +25,7 @@ export const SavingsBar = () => {
     
     <div className='p-10 border items-center sm:w-full   gap-5 justify-between rounded-2xl bg-white '>
         <div>
-        <h3 className='text-gray-800 flex gap-2 text-sm my-2'>
+        <h3 className='text-gray-800 flex gap-2 text-lg font-bold my-2'>
                 {day1.map((d,i)=>(
                     <div key={i}>
                           {i==0?d.date+"  to":d.date}  
@@ -53,10 +53,12 @@ export const SavingsBar = () => {
             </p>
             </div>
             <div className='bg-purple-100 w-full hidden sm:block sm:w-1/4 h-32 p-4 rounded-md'>
-            <h1 className='text-purple-500 text-xl'>{day1[0].date}</h1>
+            <h1 className='text-purple-500 text-xl'>{day1.length>0?
+            day1[0].date:""}</h1>
             <h1 className='text-purple-500 text-start text-xl'>to</h1>
            
-            <h1 className='text-purple-500 text-xl'>{day1[1].date}</h1>
+            <h1 className='text-purple-500 text-xl'>{day1.length>0?
+            day1[1].date:""}</h1>
             
             </div>
             

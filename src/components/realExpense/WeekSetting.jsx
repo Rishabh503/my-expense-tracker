@@ -34,12 +34,8 @@ function WeekSetting(props) {
         localStorage.setItem('days',JSON.stringify(daysData))
         props.day1Handler(daysData);
         
-        setAllExpense([{ amount:"10",
-            category:"rishabh",
-            description:"trial mode",}])
-        setAllShownExpense([{ amount:"10",
-            category:"rishabh",
-            description:"trial mode",}])
+        setAllExpense([])
+        setAllShownExpense([])
             location.reload()
     }
   
