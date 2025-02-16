@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { BudgetContext } from '../../context/BudgetProvider';
+import { ShownBudgetContext } from '../../context/ShownBudgetProvider';
 function WeekSetting(props) {
   
 
     const {allExpense,setAllExpense}=useContext(BudgetContext)
+    const {allShownExpense,setAllShownExpense,setFundShown}=useContext(ShownBudgetContext)
+    console.log(allShownExpense)
    
     const [budget, setBudget] = useState(500);
     const [days, setDays] = useState(4);
@@ -20,6 +23,8 @@ function WeekSetting(props) {
         e.preventDefault();
         
         props.weekDataHandler(budget);
+        setFundShown(budget)
+
         const today = new Date();
         const finalDate = new Date();
         finalDate.setDate(today.getDate() + (days - 1)); // Last day is today + 3 days (if 4-day week)
@@ -32,6 +37,10 @@ function WeekSetting(props) {
         setAllExpense([{ amount:"10",
             category:"rishabh",
             description:"trial mode",}])
+        setAllShownExpense([{ amount:"10",
+            category:"rishabh",
+            description:"trial mode",}])
+            location.reload()
     }
   
     

@@ -70,7 +70,7 @@ const secondBudget=JSON.parse(localStorage.getItem('fund'))
         </div>
        </div>
     </div>
-    <ShownWeekSetting weekData={fundShown} weekDataHandler={setFundShown} day1={day1}  day1Handler={setDay1}  />
+    {/* <ShownWeekSetting weekData={fundShown} weekDataHandler={setFundShown} day1={day1}  day1Handler={setDay1}  /> */}
     </>
   )
 }
