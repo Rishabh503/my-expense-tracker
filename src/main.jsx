@@ -8,10 +8,12 @@ import { RealExpenses } from './pages/RealExpenses.jsx'
 import { RouterProvider } from 'react-router-dom'
 import { Savings } from './pages/Savings.jsx'
 import { WeeklyView } from './pages/WeeklyView.jsx'
+import FrontPage from './pages/faltu.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element ={<App/>}>
+    {/* <Route path='/real' element ={<RealExpenses/>}/> */}
     <Route path='' element ={<RealExpenses/>}/>
       <Route path='/shown' element ={<ShownExpenses/>}/>
       <Route path='/savings' element ={<Savings/>}/>
