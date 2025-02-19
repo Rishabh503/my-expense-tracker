@@ -13,7 +13,7 @@ const {fund,setFund}=useContext(BudgetContext);
       const updatedafterDeleted=allExpense.filter((exp,index)=>i!==index);
       const deletedItem=allExpense.filter((exp,index)=>i===index);
       setAllExpense(updatedafterDeleted)
-      setFund(fund-deletedItem[0].amount)
+      setFund(Number(fund)+Number(deletedItem[0].amount))
       console.log(deletedItem[0])
     }
 

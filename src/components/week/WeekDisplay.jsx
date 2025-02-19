@@ -7,27 +7,27 @@ export const WeekDisplay = (props) => {
       <div className='text-3xl font-semibold'>
         {props.type} Data
       </div>
-      <div className='flex text-lg font-semibold gap-4 justify-between flex-wrap p-2 overflow-hidden'>
-          <p>
+      <div className='flex text-lg font-semibold gap-4 justify-between  p-2 overflow-hidden'>
+          <p className='w-1/3'>
             Amount
           </p>
-          <p>
+          <p className='w-1/3'>
             Category
           </p>
-          <p>
+          <p className='w-1/3'>
             Description
           </p>
         </div>
     {
       props.data.map((d,i)=>(
-        <div key={i} className='flex border items-center gap-4 justify-between flex-wrap overflow-auto p-2'>
-          <p>
+        <div key={i} className='flex border items-center gap-4 justify-between  p-2'>
+            <p className='w-1/3'>
             {d.amount}
           </p>
-          <p>
+          <p className='w-1/3'>
             {d.category}
           </p>
-          <p>
+          <p className='w-1/3'>
             {d.description}
           </p>
         </div>
